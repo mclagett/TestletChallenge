@@ -13,7 +13,8 @@ namespace TestletBuilder.Test
 
         public FakeTestBank(int initialPretestCount, int initialOperationalCount)
         {
-            // Generate Test Bank With 1000 Pretest Items and 10,000 Operational Items
+            // Generate Test Bank With initialPretestCount Pretest Items and 
+            // initialOperationalCount Operational Items
             var pretestItems = Enumerable.Range(0, initialPretestCount)
                                       .Select(i => new TestItem { Id = i, IsPretest = true });
             AddPretestItems(pretestItems);
@@ -42,8 +43,6 @@ namespace TestletBuilder.Test
 
         public IEnumerable<TestItem> GetRandomizedPretestItems(int count = 1)
         {
-            var distinctCount = PretestItems.Distinct().Count();
-            var distinctCount2 = PretestItems.Concat(OperationalItems).Distinct().Count();
             return PretestItems.OrderBy(i => Guid.NewGuid()).Take(count);
         }
 
@@ -54,7 +53,6 @@ namespace TestletBuilder.Test
 
         public IEnumerable<TestItem> GetRandomizedOperationalItems(int count = 1)
         {
-            var distinctCount = OperationalItems.Distinct().Count();
             return OperationalItems.OrderBy(i => Guid.NewGuid()).Take(count);
         }
     }
