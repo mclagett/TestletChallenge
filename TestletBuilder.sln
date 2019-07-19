@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestletBuilder.Test", "TestletBuilder.Test\TestletBuilder.Test.csproj", "{2D979DF3-B675-4134-9A02-5A4A91AB8D18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestletBuilder", "TestletBuilder\TestletBuilder.csproj", "{BA40C091-B6AF-46CD-AC6E-B2D18243B8F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D979DF3-B675-4134-9A02-5A4A91AB8D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D979DF3-B675-4134-9A02-5A4A91AB8D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D979DF3-B675-4134-9A02-5A4A91AB8D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D979DF3-B675-4134-9A02-5A4A91AB8D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA40C091-B6AF-46CD-AC6E-B2D18243B8F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA40C091-B6AF-46CD-AC6E-B2D18243B8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA40C091-B6AF-46CD-AC6E-B2D18243B8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA40C091-B6AF-46CD-AC6E-B2D18243B8F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E23D60C-609B-46F2-8784-6F4BE7F42C8C}
+	EndGlobalSection
+EndGlobal

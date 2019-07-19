@@ -1,0 +1,17 @@
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\bin\Debug\netcoreapp2.1\TestletBuilder.Test.deps.json
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\bin\Debug\netcoreapp2.1\TestletBuilder.Test.runtimeconfig.json
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\bin\Debug\netcoreapp2.1\TestletBuilder.Test.runtimeconfig.dev.json
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\bin\Debug\netcoreapp2.1\TestletBuilder.Test.dll
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\bin\Debug\netcoreapp2.1\TestletBuilder.Test.pdb
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\bin\Debug\netcoreapp2.1\TestletBuilder.dll
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\bin\Debug\netcoreapp2.1\TestletBuilder.pdb
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\obj\Debug\netcoreapp2.1\TestletBuilder.Test.csprojAssemblyReference.cache
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\obj\Debug\netcoreapp2.1\TestletBuilder.Test.csproj.CoreCompileInputs.cache
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\obj\Debug\netcoreapp2.1\TestletBuilder.Test.AssemblyInfoInputs.cache
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\obj\Debug\netcoreapp2.1\TestletBuilder.Test.AssemblyInfo.cs
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\obj\Debug\netcoreapp2.1\TestletBuilder.Test.csproj.CopyComplete
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\obj\Debug\netcoreapp2.1\TestletBuilder.Test.dll
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder.Test\obj\Debug\netcoreapp2.1\TestletBuilder.Test.pdb

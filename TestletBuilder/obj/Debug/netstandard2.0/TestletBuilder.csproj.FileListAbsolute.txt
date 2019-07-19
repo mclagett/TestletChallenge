@@ -1,0 +1,9 @@
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder\bin\Debug\netstandard2.0\TestletBuilder.deps.json
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder\bin\Debug\netstandard2.0\TestletBuilder.dll
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder\bin\Debug\netstandard2.0\TestletBuilder.pdb
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder\obj\Debug\netstandard2.0\TestletBuilder.csprojAssemblyReference.cache
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder\obj\Debug\netstandard2.0\TestletBuilder.csproj.CoreCompileInputs.cache
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder\obj\Debug\netstandard2.0\TestletBuilder.AssemblyInfoInputs.cache
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder\obj\Debug\netstandard2.0\TestletBuilder.AssemblyInfo.cs
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder\obj\Debug\netstandard2.0\TestletBuilder.dll
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\TestletBuilder\TestletBuilder\obj\Debug\netstandard2.0\TestletBuilder.pdb
