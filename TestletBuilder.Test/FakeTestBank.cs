@@ -36,22 +36,22 @@ namespace TestletBuilder.Test
             operationalItems.AddRange(items);
         }
 
-        IEnumerable<TestItem> ITestBankRepository.GetSequentialPretestItems(int count = 1, int start = 0)
+        IEnumerable<TestItem> ITestBankRepository.GetSequentialPretestItems(int count , int start )
         {
             return PretestItems.Skip(start).Take(count);
         }
 
-        IEnumerable<TestItem> ITestBankRepository.GetRandomizedPretestItems(int count = 1)
+        IEnumerable<TestItem> ITestBankRepository.GetRandomizedPretestItems(int count)
         {
             return PretestItems.OrderBy(i => Guid.NewGuid()).Take(count);
         }
 
-        IEnumerable<TestItem> ITestBankRepository.GetSequentialOperationalItems(int count = 1, int start=0)
+        IEnumerable<TestItem> ITestBankRepository.GetSequentialOperationalItems(int count, int start)
         {
             return OperationalItems.Skip(start).Take(count);
         }
 
-        IEnumerable<TestItem> ITestBankRepository.GetRandomizedOperationalItems(int count = 1)
+        IEnumerable<TestItem> ITestBankRepository.GetRandomizedOperationalItems(int count )
         {
             return OperationalItems.OrderBy(i => Guid.NewGuid()).Take(count);
         }
