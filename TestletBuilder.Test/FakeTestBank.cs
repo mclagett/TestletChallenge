@@ -6,7 +6,7 @@ using TestletBuilder.Model.Interfaces;
 
 namespace TestletBuilder.Test
 {
-    public class FakeTestBank : ITestBankRepository
+    public class FakeTestBank 
     {
         List<TestItem> pretestItems = new List<TestItem>();
         List<TestItem> operationalItems = new List<TestItem>();
@@ -36,24 +36,46 @@ namespace TestletBuilder.Test
             operationalItems.AddRange(items);
         }
 
-        IEnumerable<TestItem> ITestBankRepository.GetSequentialPretestItems(int count , int start )
+        private IEnumerable<TestItem> GetSequentialPretestItems(int count , int start )
         {
             return PretestItems.Skip(start).Take(count);
         }
 
-        IEnumerable<TestItem> ITestBankRepository.GetRandomizedPretestItems(int count)
+        private IEnumerable<TestItem> GetRandomizedPretestItems(int count)
         {
             return PretestItems.OrderBy(i => Guid.NewGuid()).Take(count);
         }
 
-        IEnumerable<TestItem> ITestBankRepository.GetSequentialOperationalItems(int count, int start)
+        private IEnumerable<TestItem> GetSequentialOperationalItems(int count, int start)
         {
             return OperationalItems.Skip(start).Take(count);
         }
 
-        IEnumerable<TestItem> ITestBankRepository.GetRandomizedOperationalItems(int count )
+        private IEnumerable<TestItem> GetRandomizedOperationalItems(int count )
         {
             return OperationalItems.OrderBy(i => Guid.NewGuid()).Take(count);
+        }
+
+        public TestletQuestionSet GetTestletQuestionSetRandomly()
+        {
+            return new TestletQuestionSet()
+            {
+                // could just as well have taken sequential items
+                // the point is that for AssembleTestlet the question set is fixed
+                PretestQuestions = this.GetRandomizedPretestItems(4),
+                OperationalQuestions = GetRandomizedOperationalItems(6)
+            };
+        }
+
+        public TestletQuestionSet GetTestletQuestionSetSequentially(int pretestStart = 0, int operationalStart = 0)
+        {
+            return new TestletQuestionSet()
+            {
+                // could just as well have taken sequential items
+                // the point is that for AssembleTestlet the question set is fixed
+                PretestQuestions = this.GetSequentialPretestItems(4, pretestStart),
+                OperationalQuestions = GetSequentialOperationalItems(6,operationalStart)
+            };
         }
     }
 }
