@@ -60,8 +60,6 @@ namespace TestletBuilder.Test
         {
             return new TestletQuestionSet()
             {
-                // could just as well have taken sequential items
-                // the point is that for AssembleTestlet the question set is fixed
                 PretestQuestions = this.GetRandomizedPretestItems(4),
                 OperationalQuestions = GetRandomizedOperationalItems(6)
             };
@@ -71,8 +69,6 @@ namespace TestletBuilder.Test
         {
             return new TestletQuestionSet()
             {
-                // could just as well have taken sequential items
-                // the point is that for AssembleTestlet the question set is fixed
                 PretestQuestions = this.GetSequentialPretestItems(4, pretestStart),
                 OperationalQuestions = GetSequentialOperationalItems(6,operationalStart)
             };
