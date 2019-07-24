@@ -13,25 +13,20 @@ namespace TestletBuilder.Model
             // begin the testlet with a random two of the four pretest and then 
             // the remaining eight ordered randomly.
 
-            List<TestItem> randomizedPretestItems = null;
-            List<TestItem> randomizedRemainingRange = null;
-            int numConsecutivePretests = 0;
+            // ensure that incoming questionSet has four pretest itmes and six operational items
+            if ((questionSet.PretestQuestions.Count() != 4) || (questionSet.OperationalQuestions.Count() != 6))
+            {
+                throw new IncorrectNumberOfItemsException("A testlet needs to include exactly four Pretest and six Operational questions");
+            }
+
             var newTestlet = new Testlet();
 
             // randomize pretestItems
-            randomizedPretestItems = questionSet.PretestQuestions.OrderBy(i => Guid.NewGuid()).ToList();
+            var randomizedPretestItems = questionSet.PretestQuestions.OrderBy(i => Guid.NewGuid()).ToList();
             newTestlet.Questions.AddRange(randomizedPretestItems.Take(2));
 
-            do
-            {
-                randomizedRemainingRange =
-                    randomizedPretestItems.Skip(2).Concat(questionSet.OperationalQuestions).OrderBy(i => Guid.NewGuid()).ToList();
-
-                numConsecutivePretests =
-                    randomizedRemainingRange.Aggregate(0, ((agg, i) => agg == 2
-                                                                       ? agg
-                                                                       : i.IsPretest ? agg + 1 : 0));
-            } while (numConsecutivePretests == 2);
+            var randomizedRemainingRange =
+                randomizedPretestItems.Skip(2).Concat(questionSet.OperationalQuestions).OrderBy(i => Guid.NewGuid()).ToList();
             newTestlet.Questions.AddRange(randomizedRemainingRange);
 
             return newTestlet;

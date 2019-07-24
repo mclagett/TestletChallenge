@@ -12,4 +12,8 @@ Changes reflect the realization that I erred in previous implementations.  If my
 
 5) I got rid of the TestBuilder method that assembled multiple tests (as well as the test that tested it).  Since the algorithm is no longer selecting questions, there is nothing the TestBuilder would be doing but receiving multiple question set inputs and running AssembleTestlet on each of them.  There would be no System Under Test behavior to be tested and such a method and test would be a waste of time. 
 
-6) It should be noted that my NoConsecutivePretestItemsInLastEight test will fail occasionally (which makes it not a good test), but I left it in to show that this is a property maintained most of the time.  There is nothing in the logic to prevent the random ordering of the last eight from occasionally placing two pretest items next to each other (nor was this a requirement).
+6) I also removed the NoConsecutivePretestItemsInLastEight test.  This was not part of the requirements and in order to pass consistently would have made me have to retry generating the last eight items until they were certain not to have included consecutive pretest items.  This might have interfered with the randomness of the process (and in any event, I'm not the one establishing the requirements).
+
+7) I also removed the NoDuplicateItem test, since this was not part of the requirements either and the ordering algorithm no longer selects the items it is ordering.  Not likely, but conceivable that someone might have wanted to include duplicate items.
+
+8) Added a check in TestBuilder.CreateTestlet to ensure the correct number of pretest and operational questions are being passed in and an exception type to throw if they are not.  Also four new unit tests to test too few and too many pretest and operational items.

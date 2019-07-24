@@ -61,44 +61,6 @@ namespace TestletBuilder.Test
         }
 
         [Fact]
-        public void NoDuplicateItemsExistInTestlet()
-        {
-            // all ten items in test are distinct
-
-            // SUT is testBuilder.AssembleSingleTestlet();
-            Testlet testlet = testBuilder.AssembleTestlet(testBank.GetTestletQuestionSetRandomly());
-            Assert.Equal(testlet.Questions.Count(), testlet.Questions.Distinct().Count());
-
-            testlet = testBuilder.AssembleTestlet(testBank.GetTestletQuestionSetSequentially());
-            Assert.Equal(testlet.Questions.Count(), testlet.Questions.Distinct().Count());
-        }
-
-        [Fact]
-        public void NoConsecutivePretestItemsInLastEight()
-        {
-            // in last eight questions the two preset items do not appear consecutively
-
-            // SUT is testBuilder.AssembleSingleTestlet();
-            Testlet testlet = testBuilder.AssembleTestlet(testBank.GetTestletQuestionSetRandomly());
-            var numConsecutivePretests =
-                testlet.Questions
-                       .Skip(2)
-                       .Aggregate(0, ((agg, i) => agg == 2
-                                                    ? agg
-                                                    : i.IsPretest ? agg + 1 : 0));
-            Assert.True(numConsecutivePretests < 2);
-
-            testlet = testBuilder.AssembleTestlet(testBank.GetTestletQuestionSetSequentially());
-            numConsecutivePretests =
-                testlet.Questions
-                       .Skip(2)
-                       .Aggregate(0, ((agg, i) => agg == 2
-                                                    ? agg
-                                                    : i.IsPretest ? agg + 1 : 0));
-            Assert.True(numConsecutivePretests < 2);
-        }
-
-        [Fact]
         public void SixTestletItemsAreOperationalAndFourArePretest()
         {
             // a run of the testbuilder will produce a total of ten items, four of which 
@@ -125,32 +87,14 @@ namespace TestletBuilder.Test
             Assert.True(testlet.Questions.Skip(2).Where(i => i.IsPretest).Count() == 2);
             Assert.True(testlet.Questions.Skip(2).Where(i => !i.IsPretest).Count() == 6);
             Assert.True(testlet.Questions.Count == 10);
-            Assert.Equal(testlet.Questions.Count(), testlet.Questions.Distinct().Count());
-
-            var numConsecutivePretests =
-                testlet.Questions
-                       .Skip(2)
-                       .Aggregate(0, ((agg, i) => agg == 2
-                                                    ? agg
-                                                    : i.IsPretest ? agg + 1 : 0));
-            Assert.True(numConsecutivePretests < 2);
             Assert.True(testlet.Questions.Where(i => i.IsPretest).Count() == 4);
             Assert.True(testlet.Questions.Where(i => !i.IsPretest).Count() == 6);
 
-            testlet = testBuilder.AssembleTestlet(testBank.GetTestletQuestionSetRandomly());
+            testlet = testBuilder.AssembleTestlet(testBank.GetTestletQuestionSetSequentially());
             Assert.True(testlet.Questions.Take(2).All(q => q.IsPretest == true));
             Assert.True(testlet.Questions.Skip(2).Where(i => i.IsPretest).Count() == 2);
             Assert.True(testlet.Questions.Skip(2).Where(i => !i.IsPretest).Count() == 6);
             Assert.True(testlet.Questions.Count == 10);
-            Assert.Equal(testlet.Questions.Count(), testlet.Questions.Distinct().Count());
-
-            numConsecutivePretests =
-                testlet.Questions
-                       .Skip(2)
-                       .Aggregate(0, ((agg, i) => agg == 2
-                                                    ? agg
-                                                    : i.IsPretest ? agg + 1 : 0));
-            Assert.True(numConsecutivePretests < 2);
             Assert.True(testlet.Questions.Where(i => i.IsPretest).Count() == 4);
             Assert.True(testlet.Questions.Where(i => !i.IsPretest).Count() == 6);
         }
@@ -188,6 +132,42 @@ namespace TestletBuilder.Test
                     Assert.False(testletToCompare.SequenceEqual(testlets[j]));
                 }
             }
+        }
+
+        [Fact]
+        void SubmittingTooFewPretestQuestionsThrowsException()
+        {
+            var questions = testBank.GetTestletQuestionSetRandomly();
+            questions.PretestQuestions = questions.PretestQuestions.Skip(1);
+            var ex = Assert.Throws<IncorrectNumberOfItemsException>(() => testBuilder.AssembleTestlet(questions));
+            Assert.Equal("A testlet needs to include exactly four Pretest and six Operational questions", ex.Message);
+        }
+
+        [Fact]
+        void SubmittingTooManyPretestQuestionsThrowsException()
+        {
+            var questions = testBank.GetTestletQuestionSetRandomly();
+            questions.PretestQuestions = questions.PretestQuestions.Concat(testBank.GetRandomizedPretestItems(1));
+            var ex = Assert.Throws<IncorrectNumberOfItemsException>(() => testBuilder.AssembleTestlet(questions));
+            Assert.Equal("A testlet needs to include exactly four Pretest and six Operational questions", ex.Message);
+        }
+
+        [Fact]
+        void SubmittingTooFewOperationalQuestionsThrowsException()
+        {
+            var questions = testBank.GetTestletQuestionSetRandomly();
+            questions.OperationalQuestions = questions.OperationalQuestions.Skip(1);
+            var ex = Assert.Throws<IncorrectNumberOfItemsException>(() => testBuilder.AssembleTestlet(questions));
+            Assert.Equal("A testlet needs to include exactly four Pretest and six Operational questions", ex.Message);
+        }
+
+        [Fact]
+        void SubmittingTooManyOperationalQuestionsThrowsException()
+        {
+            var questions = testBank.GetTestletQuestionSetRandomly();
+            questions.OperationalQuestions = questions.OperationalQuestions.Concat(testBank.GetRandomizedOperationalItems(1));
+            var ex = Assert.Throws<IncorrectNumberOfItemsException>(() => testBuilder.AssembleTestlet(questions));
+            Assert.Equal("A testlet needs to include exactly four Pretest and six Operational questions", ex.Message);
         }
     }
 }
